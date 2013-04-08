@@ -1296,6 +1296,12 @@ goog.events.wrapListener_ = function(listener) {
     return listener;
   }
 
+  // TODO(max.nikitin@): hacked for compiling
+  if (goog.isNull(listener)) {
+    throw Error('Listener can\'t be null');
+  }
+  listener = /** @type {!Object} */ (listener);
+
   return listener[goog.events.LISTENER_WRAPPER_PROP_] ||
       (listener[goog.events.LISTENER_WRAPPER_PROP_] = function(e) {
         return listener.handleEvent(e);

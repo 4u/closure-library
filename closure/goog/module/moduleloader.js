@@ -298,8 +298,10 @@ goog.module.ModuleLoader.prototype.downloadModules_ = function(
   }
   this.logger.info('downloadModules ids:' + ids + ' uris:' + uris);
 
-  if (this.getDebugMode() &&
-      !this.usingSourceUrlInjection_()) {
+  if (this.getDebugMode()) {
+  // TODO(max.nikitin@): plovr doesn't work, becouse other domain
+  // if (this.getDebugMode() &&
+  //     !this.usingSourceUrlInjection_()) {
     // In debug mode use <script> tags rather than XHRs to load the files.
     // This makes it possible to debug and inspect stack traces more easily.
     // It's also possible to use it to load JavaScript files that are hosted on

@@ -20,7 +20,7 @@
  * include their own deps file(s) from different locations.
  *
  *
- * @provideGoog
+ * TODO(max.nikitin): @provideGoog was removed for plovr compiling
  */
 
 
