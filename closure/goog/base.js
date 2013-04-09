@@ -611,8 +611,10 @@ if (!COMPILED && goog.ENABLE_DEBUG_LOADER) {
         var isDeps = /\bdeps.js$/.test(src);
         if (isDeps) {
           return false;
-        } else {
-          throw Error('Cannot write "' + src + '" after document load');
+        } else if (goog.global.console) {
+          // TODO(max.nikitin@): IE8-9 writes some scrtips after complete state
+          goog.global.console['log']('You try to write "' + src +
+              '" after document load');
         }
       }
 
